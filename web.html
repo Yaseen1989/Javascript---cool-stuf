@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Change Site Fonts</title>
+<link rel="stylesheet" href="./style/style.css" type="text/css" />
+
+<script type="text/javascript">
+
+function resizeText(m) {
+  if (document.body.style.fontSize == "") {
+    document.body.style.fontSize = "1.0em";
+  }
+  document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (m * 0.2) + "em";
+}
+
+function bigText(m) {
+  var big = document.getElementById("plustext");
+  if (big.style.fontSize == "") {
+    big.style.fontSize = "1.0em";
+  } else {
+    big.style.fontSize = "10.0em"
+  }
+  big.style.fontSize = "2000px";
+}
+
+
+</script>
+
+</head>
+
+<body>
+  
+
+  <div id="id">
+    <h1>Some text here</h1>
+    <h2>Some text here</h2>
+    <h3>Some text here</h3>
+  </div>
+
+<a href="javascript:void(0);" onclick="resizeText(1)" >Bigger</a> <span></span>
+<a href="javascript:void(0);" onclick="resizeText(-1)" id="minustext">Smaller</a>
+
+<br />
+<br />
+
+<button>Change Background Color</button>
+
+
+<div id="plustext">
+    <h1>Some text here</h1>
+    <h2>Some text here</h2>
+  </div>
+
+<a href="javascript:void(0);" onclick="bigText(1)" >Bigger</a> <span></span>
+<a href="javascript:void(0);" onclick="smallText(-1)">Smaller</a>
+
+
+
+ 
+ 
+<script type="text/javascript" src="./script/index.js"></script>
+
+<script>
+  function bigText(m) {
+  var big = document.getElementById("plustext");
+  if (big.style.fontSize == "") {
+    big.style.fontSize = "1.0em";
+  }
+  
+  big.style.fontSize = parseFloat(big.style.fontSize) + (m * 0.2) + "em";
+}
+
+function smallText(m) {
+  var big = document.getElementById("plustext");
+  if (big.style.fontSize == "") {
+    big.style.fontSize = "1.0em";
+  
+  }
+  big.style.fontSize = parseFloat(big.style.fontSize) + (m * 0.2) + "em";;
+}
+  
+</script>
+
+</body>
+
+</html>
