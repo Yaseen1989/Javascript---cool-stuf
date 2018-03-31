@@ -7,6 +7,10 @@
 
 <script type="text/javascript">
 
+function addContent(divName, content) {
+     document.getElementById(divName).innerHTML = content;
+}
+
 function resizeText(m) {
   if (document.body.style.fontSize == "") {
     document.body.style.fontSize = "1.0em";
@@ -14,15 +18,7 @@ function resizeText(m) {
   document.body.style.fontSize = parseFloat(document.body.style.fontSize) + (m * 0.2) + "em";
 }
 
-function bigText(m) {
-  var big = document.getElementById("plustext");
-  if (big.style.fontSize == "") {
-    big.style.fontSize = "1.0em";
-  } else {
-    big.style.fontSize = "10.0em"
-  }
-  big.style.fontSize = "2000px";
-}
+
 
 
 </script>
@@ -31,7 +27,7 @@ function bigText(m) {
 
 <body>
   
-
+<div class="left">
   <div id="id">
     <h1>Some text here</h1>
     <h2>Some text here</h2>
@@ -57,7 +53,22 @@ function bigText(m) {
 
 
 
+ </div>
  
+ <div class="right">
+    <form name="myForm2">
+      <h1>Cookie :</h1><br />
+    Enter your name below and click the button.  Your name will be saved to a cookie that expires in 7 days.  When you refresh the page or come back to visit you will see a heartwarming message welcoming you back.
+    <br><br>
+    <input text name="myContent2" value="Enter your name here...">
+    <input type="button" value="Save my name" onClick="addContent('myDiv2', document.myForm2.myContent2.value); setCookie('content', document.myForm2.myContent2.value, 7);">
+    </form>
+    <br><br>
+    Your name will be saved below:
+    <div id="myDiv2" style="font-weight: bold;"></div>
+
+   </div>
+   
  
 <script type="text/javascript" src="./script/index.js"></script>
 
@@ -80,6 +91,28 @@ function smallText(m) {
   big.style.fontSize = parseFloat(big.style.fontSize) + (m * 0.2) + "em";;
 }
   
+</script>
+
+<script>
+    function setCookie(c_name,value,expiredays) {
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate()+expiredays);
+    document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+}
+function getCookie(c_name) {
+    if (document.cookie.length>0) {
+        var c_start=document.cookie.indexOf(c_name + "=");
+        if (c_start!=-1) { 
+            c_start=c_start + c_name.length+1; 
+        var    c_end=document.cookie.indexOf(";",c_start);
+            if (c_end==-1) c_end=document.cookie.length;
+            var cookieContent = "Welcome back " + unescape(document.cookie.substring(c_start,c_end));
+            document.getElementById('myDiv2').innerHTML = cookieContent;
+        } 
+    }
+}
+getCookie('content');
+    
 </script>
 
 </body>

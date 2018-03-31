@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script>
+	    function addContent(divName, content) {
+     document.getElementById(divName).innerHTML = content;
+}
+	    
+	</script>
+</head>
+<body>
+
+
+<form name="myForm2">
+Enter your name below and click the button.  Your name will be saved to a cookie that expires in 7 days.  When you refresh the page or come back to visit you will see a heartwarming message welcoming you back.
+<br><br>
+<input text name="myContent2" value="Enter your name here...">
+<input type="button" value="Save my name" onClick="addContent('myDiv2', document.myForm2.myContent2.value); setCookie('content', document.myForm2.myContent2.value, 7);">
+</form>
+<br><br>
+Your name will be saved below:
+<div id="myDiv2" style="font-weight: bold;"></div>
+
+<script>
+    function setCookie(c_name,value,expiredays) {
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate()+expiredays);
+    document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+}
+function getCookie(c_name) {
+    if (document.cookie.length>0) {
+        var c_start=document.cookie.indexOf(c_name + "=");
+        if (c_start!=-1) { 
+            c_start=c_start + c_name.length+1; 
+        var    c_end=document.cookie.indexOf(";",c_start);
+            if (c_end==-1) c_end=document.cookie.length;
+            var cookieContent = "Welcome back " + unescape(document.cookie.substring(c_start,c_end));
+            document.getElementById('myDiv2').innerHTML = cookieContent;
+        } 
+    }
+}
+getCookie('content');
+    
+</script>
+
+</body>
+</html>
