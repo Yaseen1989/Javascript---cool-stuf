@@ -1,0 +1,90 @@
+
+#container{
+    width: 960px;
+    margin: 0px auto;
+}
+
+#right{
+  width: 480px;
+  float: left;
+}
+#left{
+  width: 480px;
+  float: left;
+}
+
+#res {
+  background-color: lightgray;
+  border: solid;
+  height: 48px;
+  font-size: 20px;
+  width: 75.5%;
+}
+#rec{
+  background-color: lightgray;
+  border: solid;
+  height: 48px;
+  font-size: 20px;
+  width: 75.5%;
+}
+
+#btns button {
+  width: 25%;
+  height: 36px;
+  font-size: 18px;
+  margin:0;
+}
+
+#recW, #recH{
+  width: 37%;
+  height: 36px;
+  font-size: 18px;
+  margin:0;
+}
+
+#btn0, #btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7, #btn8, #btn9 {
+  background-color: lightgreen;
+  color: brown;
+}
+
+
+
+#btnClr, #btnEql {
+  background-color: darkgreen;
+  color: white;
+}
+#btnClrRec, #btnEqlRec {
+  background-color: darkgreen;
+  color: white;
+}
+
+#btnSum, #btnSub, #btnMul, #btnDiv {
+  background-color: black;
+  color: red;
+}
+
+@media screen and (max-width:959px){
+    #container{
+    width: 100%;
+    }
+    #right{
+        width:50%;
+    }
+      #left{
+        width:50%;
+    }
+
+}
+
+@media screen and (max-width:640px){
+    #container{
+    width: 100%;
+    }
+    #right{
+        width:100%;
+    }
+      #left{
+        width:100%;
+    }
+
+}
